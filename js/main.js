@@ -8,16 +8,19 @@ const display = document.querySelector(".display");
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
         let pressedNumber = number.dataset.value;
-        showCurrentPressedBtn(pressedNumber);
+        showCurrentPressedNum(pressedNumber);
     });
 });
 
-function showCurrentPressedBtn(button){
-    let btnsAccumulated = display.textContent;
-    if (btnsAccumulated == 0){
-        display.textContent = button;
+function showCurrentPressedNum(num){
+    let numsAccumulated = display.textContent;
+    if (numsAccumulated == 0){
+        display.textContent = num;
     } else {
-        display.textContent = btnsAccumulated + button;
+        display.textContent = numsAccumulated + num;
     }
-    
 }
+
+clear.addEventListener("click", () => {
+    display.textContent = "";
+})
