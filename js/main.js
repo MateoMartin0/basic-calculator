@@ -15,6 +15,27 @@ let mathElements = {
 //represents the "expected" element
 let currentStage = "firstNumber";
 
+numbers.forEach((num) => {
+    num.addEventListener("click", () => {
+        let numberPressed = num.dataset.value;
+
+        if (currentStage === "firstNumber"){
+            if (mathElements.firstNumber === "" || mathElements.firstNumber === "0"){
+                mathElements.firstNumber = numberPressed;
+            } else {
+                mathElements.firstNumber = mathElements.firstNumber + numberPressed;
+            }
+        }
+        if (currentStage == "secondNumber"){
+            if (mathElements.secondNumber === "" || mathElements.secondNumber === "0"){
+                mathElements.secondNumber = numberPressed;
+            } else {
+                mathElements.secondNumber = mathElements.secondNumber + numberPressed;
+            }
+        }
+    })
+})
+
 clear.addEventListener("click", () => {
     display.textContent = "";
 })
