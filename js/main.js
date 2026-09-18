@@ -38,4 +38,7 @@ numbers.forEach((num) => {
 
 clear.addEventListener("click", () => {
     display.textContent = "";
+    mathElements.firstNumber = "";
+    mathElements.operator = "";
+    mathElements.secondNumber = "";
 })
