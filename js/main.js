@@ -36,6 +36,9 @@ numbers.forEach((num) => {
     })
 })
 
+//POSIBLEMENTE EL SIGUIENTE PASO SEA MOSTRAR EN EL DISPLAY
+//¿CON FUNCION DEDICADA A MOSTRAR EN EL DISPLAY O CON UNA PARTICULAR PARA CADA PARTE DE LA OPERACION?
+
 clear.addEventListener("click", () => {
     display.textContent = "";
     mathElements.firstNumber = "";
