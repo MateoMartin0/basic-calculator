@@ -37,6 +37,16 @@ numbers.forEach((num) => {
     })
 })
 
+operators.forEach((operator) => {
+    operator.addEventListener("click", () => {
+        let operatorPressed = operator.dataset.op;
+        mathElements.operator = operatorPressed;
+        currentStage = "operator";
+        showDisplay();
+        currentStage = "secondNumber";
+    })
+})
+
 clear.addEventListener("click", () => {
     display.textContent = "";
     mathElements.firstNumber = "";
