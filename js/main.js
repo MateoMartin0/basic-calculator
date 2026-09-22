@@ -37,6 +37,13 @@ numbers.forEach((num) => {
     })
 })
 
+clear.addEventListener("click", () => {
+    display.textContent = "";
+    mathElements.firstNumber = "";
+    mathElements.operator = "";
+    mathElements.secondNumber = "";
+})
+
 function showDisplay (){
     if (currentStage === "firstNumber"){
         display.textContent = mathElements.firstNumber;
@@ -47,9 +54,3 @@ function showDisplay (){
     }
 }
 
-clear.addEventListener("click", () => {
-    display.textContent = "";
-    mathElements.firstNumber = "";
-    mathElements.operator = "";
-    mathElements.secondNumber = "";
-})
