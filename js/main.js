@@ -41,9 +41,11 @@ operators.forEach((operator) => {
     operator.addEventListener("click", () => {
         let operatorPressed = operator.dataset.op;
         mathElements.operator = operatorPressed;
-        currentStage = "operator";
-        showDisplay();
-        currentStage = "secondNumber";
+        
+        if (mathElements.firstNumber !== "" && mathElements.firstNumber !== "0") {
+            currentStage = "secondNumber";
+            showDisplay();
+        }
     })
 })
 
@@ -52,6 +54,7 @@ clear.addEventListener("click", () => {
     mathElements.firstNumber = "";
     mathElements.operator = "";
     mathElements.secondNumber = "";
+    currentStage = "firstNumber";
 })
 
 function showDisplay (){
