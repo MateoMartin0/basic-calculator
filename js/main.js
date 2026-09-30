@@ -18,7 +18,7 @@ numbers.forEach((num) => {
         let numberPressed = num.dataset.value;
 
         if (currentStage === "firstNumber"){
-            if (mathElements.firstNumber === "" || mathElements.firstNumber === "0"){
+            if (mathElements.firstNumber === "" || mathElements.firstNumber == "0"){
                 mathElements.firstNumber = numberPressed;
             } else {
                 mathElements.firstNumber = mathElements.firstNumber + numberPressed;
@@ -42,11 +42,42 @@ operators.forEach((operator) => {
         let operatorPressed = operator.dataset.op;
         mathElements.operator = operatorPressed;
         
-        if (mathElements.firstNumber !== "" && mathElements.firstNumber !== "0") {
+        if (mathElements.firstNumber !== "") {
             currentStage = "secondNumber";
             showDisplay();
         }
     })
+})
+
+equal.addEventListener("click", () => {
+    if (mathElements.secondNumber !== ""){
+        let firstNumberConverted = Number(mathElements.firstNumber);
+        let secondNumberConverted = Number(mathElements.secondNumber);
+        let result;
+
+        if (mathElements.operator == "+") {
+            result = firstNumberConverted + secondNumberConverted;
+        } else if (mathElements.operator == "-") {
+            result = firstNumberConverted - secondNumberConverted;
+        } else if (mathElements.operator == "x") {
+            result = firstNumberConverted * secondNumberConverted;
+        } else if (mathElements.operator == "/" && secondNumberConverted !== 0) {
+            result = firstNumberConverted / secondNumberConverted;
+        } else {
+            result = "infinite";
+        }
+
+        display.textContent = result;
+
+        mathElements.firstNumber = "";
+        mathElements.operator = "";
+        mathElements.secondNumber = "";
+        currentStage = "firstNumber";
+
+        if (result !== "infinite") {
+            mathElements.firstNumber = result;
+        }
+    }
 })
 
 clear.addEventListener("click", () => {
